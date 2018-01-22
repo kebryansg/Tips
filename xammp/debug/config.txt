@@ -1,0 +1,11 @@
+; Copiar el archivo php_xdebug.dll en "c:\xampp\php\ext\php_xdebug.dll"
+; Agregar al Archivo php.ini
+
+[XDebug]
+zend_extension = "c:\xampp\php\ext\php_xdebug.dll"
+xdebug.remote_enable = 1
+xdebug.remote_handler = "dbgp"
+xdebug.remote_host = "127.0.0.1"
+xdebug.remote_port=9000
+
+;Reiniciar el servidor

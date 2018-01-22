@@ -1,0 +1,14 @@
+/* Genera una secuencia de numeros */
+
+/* Ejemplos */
+/* Select rownum AS N , * from Categoria */
+
+CREATE DEFINER=`root`@`localhost` FUNCTION `rownum`() RETURNS int(11)
+BEGIN
+	#Routine body goes here...
+	set @prvrownum=if(@ranklastrun=CURTIME(6),@prvrownum+1,1);
+  set @ranklastrun=CURTIME(6);
+  RETURN @prvrownum;
+END
+
+===================================

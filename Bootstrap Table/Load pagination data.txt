@@ -1,0 +1,32 @@
+Load pagination data(#431).
+http://issues.wenzhixin.net.cn/bootstrap-table/issues/431.html
+<table id="table"
+               data-toggle="table"
+               data-pagination="true"
+               data-side-pagination="server">
+            <thead>
+            <tr>
+                <th data-field="id">ID</th>
+                <th data-field="name">Item Name</th>
+                <th data-field="price">Item Price</th>
+            </tr>
+            </thead>
+        </table>
+<script>
+    var $table = $('#table');
+    $(function () {
+        $table.on('page-change.bs.table', function (e, number, size) {
+            getData(number, size);
+        });
+        var options = $table.bootstrapTable('getOptions');
+        getData(options.pageNumber, options.pageSize);
+    });
+    function getData(number, size) {
+        $.get('/examples/bootstrap_table/data', {
+            offset: (number - 1) * size,
+            limit: size
+        }, function (res) {
+            $table.bootstrapTable('load', res);
+        });
+    }
+</script>

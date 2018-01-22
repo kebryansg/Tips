@@ -1,0 +1,74 @@
+=========================================================
+
+https://github.com/ramsey/array_column
+
+include src/array_column.php (array_column-master.zip)
+
+Filtrar Array
+
+$records = array(
+    array(
+        'id' => 2135,
+        'first_name' => 'John',
+        'last_name' => 'Doe'
+    ),
+    array(
+        'id' => 3245,
+        'first_name' => 'Sally',
+        'last_name' => 'Smith'
+    ),
+    array(
+        'id' => 5342,
+        'first_name' => 'Jane',
+        'last_name' => 'Jones'
+    ),
+    array(
+        'id' => 5623,
+        'first_name' => 'Peter',
+        'last_name' => 'Doe'
+    )
+);
+
+$lastNames = array_column($records, 'last_name', 'id');
+
+Salida
+
+Array
+(
+    [2135] => Doe
+    [3245] => Smith
+    [5342] => Jones
+    [5623] => Doe
+)
+
+=========================================================
+
+http://sandbox.onlinephpfunctions.com/code/19385da11fe0614ef5f84f58b6dae80bd216fc01
+Busqueda para un solo elemento
+
+$key = array_search(40489, array_column($userdb, 'uid'));
+
+Busqueda MultiDimensional 
+Array asociativos
+
+$array_subjected_to_search =array(
+array(
+            
+            'name' => 'flash',
+            'type' => 'hero'
+        ),
+
+array(
+            'name' => 'zoom',
+            'type' => 'villian'
+        ),
+
+    array(
+            'name' => 'snart',
+            'type' => 'antihero'
+        )
+);
+$key = array_search('snart', array_column($array_subjected_to_search, 'name'));
+var_dump($array_subjected_to_search[$key]);
+
+=========================================================
