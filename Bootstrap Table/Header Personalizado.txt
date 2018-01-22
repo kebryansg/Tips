@@ -1,0 +1,22 @@
+http://jsfiddle.net/e3nk137y/1702/
+
+//
+/* CSS */
+
+.name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+/* HTML */
+
+<table id="table">
+    <thead>
+    <tr>
+        <th data-field="name" class="name">Name is very long, is very long, very long, long</th>
+        <th data-field="stargazers_count">Stars</th>
+        <th data-field="forks_count">Forks</th>
+        <th data-field="description">Description</th>
+    </tr>
+    </thead>
+</table>
